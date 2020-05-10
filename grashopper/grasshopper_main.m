@@ -249,7 +249,7 @@ for run = 1: 4
         outputWeights= bestCellWeights{3};
         leaky = bestHopper(4);
         
-        testMSE(trial) = findTestRMSE(inputWeights,resWeights,outputWeights,bestResEx,normData,targets,outputSize,trainLen,testLen,leaky,inputSize,initLen);
+        testMSE(trial) = findTestMSE(inputWeights,resWeights,outputWeights,bestResEx,normData,targets,outputSize,trainLen,testLen,leaky,inputSize,initLen);
   
         cellWeightsBestPerTrial(trial,:) = bestCellWeights;
         cellBestResExPerTrial{trial} = bestResEx;
