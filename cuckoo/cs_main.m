@@ -142,7 +142,7 @@ for run = 1: 4
         
         
         for i = 1: popSize
-            [costMatrix(i),cellWeights(i,:),cellResEx{i}] = testingfindCostMSE(population(i,:),normData,targets,inputSize,outputSize,...
+            [costMatrix(i),cellWeights(i,:),cellResEx{i}] = findCostMSE(population(i,:),normData,targets,inputSize,outputSize,...
                 trainLen,initLen,leaky);
         end
         
@@ -208,7 +208,7 @@ for run = 1: 4
                 
                 
                 newBottomNests(botNest,:) = solutionNew;
-                [costOfNewBottomNests(botNest),cellWeightsBottomNest(botNest,:), cellBotResEx{botNest}] = testingfindCostMSE(solutionNew,normData,targets,inputSize,outputSize,...
+                [costOfNewBottomNests(botNest),cellWeightsBottomNest(botNest,:), cellBotResEx{botNest}] = findCostMSE(solutionNew,normData,targets,inputSize,outputSize,...
                     trainLen,initLen,leaky);
                 
             end
@@ -384,7 +384,7 @@ for run = 1: 4
         testMSE(trial) = testingfindTestMseCuckoo(inputWeights,resWeights,outputWeights,normData,targets,outputSize,trainLen,testLen,leaky,bestResEx);
         % bestNest = population(1,:);
         
-         %testMSE(trial) = testingfindTestMseCuckoo(bestNest,normData,targets,outputSize,trainLen,testLen,leaky,inputSize,initLen);
+         %testMSE(trial) = findTestMSE(bestNest,normData,targets,outputSize,trainLen,testLen,leaky,inputSize,initLen);
          
         % timing(trial) = toc;
         cellWeightsBestPerTrial(trial,:) = bestCellWeights;
@@ -402,22 +402,22 @@ for run = 1: 4
     switch(run)
         
         case 1
-            save('cs_FD001_time','timing','bestNestPerTrial','bestPerIterPerTrail','bestTrainPerTrial','avgPerIterPerTrial','testMSE','cellWeightsBestPerTrial','cellBestResExPerTrial');    
+            save('cs_FD001','timing','bestNestPerTrial','bestPerIterPerTrail','bestTrainPerTrial','avgPerIterPerTrial','testMSE','cellWeightsBestPerTrial','cellBestResExPerTrial');    
             
         case 2
             
             
-            save('cs_FD002_time','timing','bestNestPerTrial','bestPerIterPerTrail','bestTrainPerTrial','avgPerIterPerTrial','testMSE','cellWeightsBestPerTrial','cellBestResExPerTrial');   
+            save('cs_FD002','timing','bestNestPerTrial','bestPerIterPerTrail','bestTrainPerTrial','avgPerIterPerTrial','testMSE','cellWeightsBestPerTrial','cellBestResExPerTrial');   
             
         case 3
             
             
-            save('cs_FD003_time','timing','bestNestPerTrial','bestPerIterPerTrail','bestTrainPerTrial','avgPerIterPerTrial','testMSE','cellWeightsBestPerTrial','cellBestResExPerTrial');   
+            save('cs_FD003','timing','bestNestPerTrial','bestPerIterPerTrail','bestTrainPerTrial','avgPerIterPerTrial','testMSE','cellWeightsBestPerTrial','cellBestResExPerTrial');   
             
         case 4
             
             
-            save('cs_FD004_time','timing','bestNestPerTrial','bestPerIterPerTrail','bestTrainPerTrial','avgPerIterPerTrial','testMSE','cellWeightsBestPerTrial','cellBestResExPerTrial');   
+            save('cs_FD004','timing','bestNestPerTrial','bestPerIterPerTrail','bestTrainPerTrial','avgPerIterPerTrial','testMSE','cellWeightsBestPerTrial','cellBestResExPerTrial');   
             
     end
 end
