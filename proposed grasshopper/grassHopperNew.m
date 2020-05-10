@@ -144,7 +144,7 @@ for run = 1:4
         for i = 1: popSize
             %[fitMatrix(i),cellWeights(i,:),cellResEx{i}] = findCostMyIdea(population(i,:),normData,targets,inputSize,outputSize,...
             %trainLen,initLen,leakyMat,resMat,spectMat,resConMat,regMat);
-            [fitMatrix(i),cellWeights(i,:),cellResEx{i}] = findCostNoD(population(i,:),normData,targets,trainLen,initLen,...
+            [fitMatrix(i),cellWeights(i,:),cellResEx{i}] = findCost(population(i,:),normData,targets,trainLen,initLen,...
                 inputSize,outputSize,leakyMat,resMat,spectMat,resConMat,regMat,inScaleMat);
         end
         
@@ -270,7 +270,7 @@ for run = 1:4
                             %xNew(upperCut) = randi(10,1, sum(upperCut));
                         end
                         %Find the cost of new solution
-                        [fitMatrixNew(j),cellWeightsNew(j,:),cellResExNew{j}] = findCostNoD(xNew,normData,targets,trainLen,...
+                        [fitMatrixNew(j),cellWeightsNew(j,:),cellResExNew{j}] = findCost(xNew,normData,targets,trainLen,...
                             initLen,inputSize,outputSize,leakyMat,resMat,spectMat,resConMat,regMat,inScaleMat);
                         populationNew(j,:) = xNew;
                        
@@ -334,7 +334,7 @@ for run = 1:4
         
         
         
-        testMSE(trial)  = findTestRMSEMyIdea2(bestHopper,normData,targets,outputSize,trainLen,testLen,inputSize,initLen,...
+        testMSE(trial)  = findTestMSE(bestHopper,normData,targets,outputSize,trainLen,testLen,inputSize,initLen,...
             leakyMat,resMat,inputWeights, resWeights,outputWeights,bestResEx);
         
        
@@ -351,22 +351,22 @@ for run = 1:4
         
         case 1
             
-            save('gHopFD001Cost22','timing','testMSE','bestPerIterPerTrail','bestCostPerTrial','avgPerIterPerTrial','bestHopperPerTrial');
+            save('gHopFD001','timing','testMSE','bestPerIterPerTrail','bestCostPerTrial','avgPerIterPerTrial','bestHopperPerTrial');
             
         case 2
             
             
-            save('gHopFD002Cost22','timing','testMSE','bestPerIterPerTrail','bestCostPerTrial','avgPerIterPerTrial','bestHopperPerTrial');
+            save('gHopFD002','timing','testMSE','bestPerIterPerTrail','bestCostPerTrial','avgPerIterPerTrial','bestHopperPerTrial');
             
         case 3
             
             
-            save('gHopFD003Cost22','timing','testMSE','bestPerIterPerTrail','bestCostPerTrial','avgPerIterPerTrial','bestHopperPerTrial');
+            save('gHopFD003','timing','testMSE','bestPerIterPerTrail','bestCostPerTrial','avgPerIterPerTrial','bestHopperPerTrial');
             
         case 4
             
             
-            save('gHopFD004CostDiff','timing','testMSE','bestPerIterPerTrail','bestCostPerTrial','avgPerIterPerTrial','bestHopperPerTrial');
+            save('gHopFD004','timing','testMSE','bestPerIterPerTrail','bestCostPerTrial','avgPerIterPerTrial','bestHopperPerTrial');
             
     end
 end
