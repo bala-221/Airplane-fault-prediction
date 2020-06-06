@@ -87,7 +87,7 @@ for run = 1: 4
     
     
     
-    maxTrial = 2; %changed
+    maxTrial = 10; 
     bestPerIterPerTrail = zeros(maxGen,maxTrial);
     avgPerIterPerTrial =  zeros(maxGen,maxTrial);
     bestTrainPerTrial = zeros(maxTrial,1);
@@ -267,7 +267,7 @@ for run = 1: 4
                     end
                     
                     
-                    [costSolutionNew,newCellWeights, newCellResEx] = testingfindCostMSE(solutionNew,normData,targets,inputSize,outputSize,...
+                    [costSolutionNew,newCellWeights, newCellResEx] = findCostMSE(solutionNew,normData,targets,inputSize,outputSize,...
                         trainLen,initLen,leaky);
                     
                     %now select a random solution from the entire population and
@@ -384,9 +384,7 @@ for run = 1: 4
         testMSE(trial) = testingfindTestMseCuckoo(inputWeights,resWeights,outputWeights,normData,targets,outputSize,trainLen,testLen,leaky,bestResEx);
         % bestNest = population(1,:);
         
-         %testMSE(trial) = findTestMSE(bestNest,normData,targets,outputSize,trainLen,testLen,leaky,inputSize,initLen);
-         
-        % timing(trial) = toc;
+       
         cellWeightsBestPerTrial(trial,:) = bestCellWeights;
         cellBestResExPerTrial{trial} = bestResEx;
         bestPerIterPerTrail(:,trial) = bestCostIteration;
