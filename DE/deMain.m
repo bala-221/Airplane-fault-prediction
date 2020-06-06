@@ -3,10 +3,10 @@
 %ESN optimisation from the paper: Effective electricity consumption
 %forecasting using echo state network improved by diffrential evolution
 %algorithm by Wang et al. 2018
-%The DE implemneted is the jDE from Brest J, Greiner S, Boškovi´c B,
-%Mernik M, Žumer V (2006) Self-adapting control parameters in differential
+%The DE implemneted is the jDE from Brest J, Greiner S, BoÅ¡koviÂ´c B,
+%Mernik M, Å½umer V (2006) Self-adapting control parameters in differential
 %evolution: a comparative study on numerical benchmark problems.
-%IEEE Trans Evol Comput 10(6):646–657
+%IEEE Trans Evol Comput 10(6):646â€“657
 %otpimizes only three parameters
 %By: Abubakar Bala
 %Topic:
@@ -131,7 +131,7 @@ for run = 1: 4
         
         
         for i = 1: popSize
-            [fitMatrix(i),cellWeights(i,:),cellResEx{i}] = findCostNoD(population(i,:),normData,targets,inputSize,outputSize,...
+            [fitMatrix(i),cellWeights(i,:),cellResEx{i}] = findCost(population(i,:),normData,targets,inputSize,outputSize,...
                 trainLen,initLen,leaky);
         end
         
@@ -216,7 +216,7 @@ for run = 1: 4
                 
                 %find the cost of crossChild
                 
-                [childFitness,childcellWeights,childCellResEx] = findCostNoD(crossChild,normData,targets,inputSize,outputSize,...
+                [childFitness,childcellWeights,childCellResEx] = findCost(crossChild,normData,targets,inputSize,outputSize,...
                     trainLen,initLen,leaky);
                 
                 
@@ -250,7 +250,7 @@ for run = 1: 4
                 outputWeights = bestCellWeights{3};
 
         bestSol  = population(index,:);
-        testMSE(trial) = funcTestMSE(inputWeights,resWeights,outputWeights,normData,targets,outputSize,trainLen,testLen,leaky,bestResEx);
+        testMSE(trial) = findTestMSE(inputWeights,resWeights,outputWeights,normData,targets,outputSize,trainLen,testLen,leaky,bestResEx);
         
         %testMSE(trial) = testNawaRMSE(inputWeights,resWeights,outputWeights,bestResEx,normData,targets,outputSize,trainLen,testLen,leaky);
         
