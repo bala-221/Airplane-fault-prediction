@@ -1,4 +1,4 @@
-function [mseTest] = testingfindTestMseCuckoo(inputWeights,resWeights,outputWeights,normData,targets,outputSize,trainLen,testLen,leaky,bestResEx)
+function [mseTest] = findTestMseCuckoo(inputWeights,resWeights,outputWeights,normData,targets,outputSize,trainLen,testLen,leaky,bestResEx)
 %UNTITLED4 Summary of this function goes here
 %   Detailed explanation goes here
 
