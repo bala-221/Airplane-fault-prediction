@@ -61,27 +61,6 @@ yTarget = targets(initLen+1:newTrainLen);
 outputWeights = yTarget'*pinv(reservAct);
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Test for trainLen
-
-% yPredicted = zeros(newTrainLen,outputSize);
-% 
-% for t = 1:newTrainLen  %
-%     u = normData(t,:)';
-%     x = (1-leaky)*x + leaky*tanh(inputWeights*[1;u] + resWeights*x);
-%     ySmall =  outputWeights*[1;u;x];
-%     yPredicted(t) = ySmall;
-% end
-
-% yPredicted = outputWeights* reservAct;
-% 
-% yReal = targets(initLen+1:newTrainLen);
-% squareErrors = (yReal-yPredicted').^2;
-% mseTrain = sum(squareErrors)/length(yPredicted);
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%for valid
 
 
 yPredicted = zeros(validLen,outputSize);
@@ -99,7 +78,7 @@ mseValid = sum(squareErrors)/length(yPredicted);
 
 cost = mseValid;
 
-%cost = mseTrain + abs(mseTrain - mseValid);
+
 
 
 cellWeights = cell(1,3);
