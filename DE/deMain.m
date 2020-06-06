@@ -269,21 +269,21 @@ for run = 1: 4
     switch(run)
         
         case 1
-            save('DE_FD001_rev','timing','testMSE','bestPerIterPerTrail','bestTrainPerTrial','avgPerIterPerTrial','bestSolPerTrial','cellWeightsBestPerTrial','cellBestResExPerTrial');
+            save('DE_FD001','timing','testMSE','bestPerIterPerTrail','bestTrainPerTrial','avgPerIterPerTrial','bestSolPerTrial','cellWeightsBestPerTrial','cellBestResExPerTrial');
             
         case 2            
             
-            save('DE_FD002_rev','timing','testMSE','bestPerIterPerTrail','bestTrainPerTrial','avgPerIterPerTrial','bestSolPerTrial','cellWeightsBestPerTrial','cellBestResExPerTrial');
+            save('DE_FD002','timing','testMSE','bestPerIterPerTrail','bestTrainPerTrial','avgPerIterPerTrial','bestSolPerTrial','cellWeightsBestPerTrial','cellBestResExPerTrial');
             
         case 3
             
             
-            save('DE_FD003_rev','timing','testMSE','bestPerIterPerTrail','bestTrainPerTrial','avgPerIterPerTrial','bestSolPerTrial','cellWeightsBestPerTrial','cellBestResExPerTrial');
+            save('DE_FD003','timing','testMSE','bestPerIterPerTrail','bestTrainPerTrial','avgPerIterPerTrial','bestSolPerTrial','cellWeightsBestPerTrial','cellBestResExPerTrial');
             
         case 4
             
             
-            save('DE_FD004_rev','timing','testMSE','bestPerIterPerTrail','bestTrainPerTrial','avgPerIterPerTrial','bestSolPerTrial','cellWeightsBestPerTrial','cellBestResExPerTrial');
+            save('DE_FD004','timing','testMSE','bestPerIterPerTrail','bestTrainPerTrial','avgPerIterPerTrial','bestSolPerTrial','cellWeightsBestPerTrial','cellBestResExPerTrial');
             
     end
 end
