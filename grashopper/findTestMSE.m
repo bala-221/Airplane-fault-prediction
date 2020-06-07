@@ -1,4 +1,4 @@
-function [rmseTest] = findTestRMSE(inputWeights,resWeights,outputWeights,bestResEx,normData,targets,outputSize,trainLen,testLen,leaky,inputSize,initLen)
+function [mseTest] = findTestMSE(inputWeights,resWeights,outputWeights,bestResEx,normData,targets,outputSize,trainLen,testLen,leaky,inputSize,initLen)
 
 x = bestResEx;
 
@@ -16,7 +16,7 @@ end
 
 yReal = targets(trainLen+1:trainLen+testLen);
 squareErrors = (yReal-yPredicted).^2;
-rmseTest = sum(squareErrors)/length(yPredicted);
+mseTest = sum(squareErrors)/length(yPredicted);
 
 end
 
