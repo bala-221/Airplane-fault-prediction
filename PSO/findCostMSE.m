@@ -35,18 +35,8 @@ yTarget = targets(initLen+1:newTrainLen);
 outputWeights = yTarget'*pinv(reservAct);
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Test for trainLen
 
 
-yPredicted = outputWeights* reservAct;
-
-yReal = targets(initLen+1:newTrainLen);
-squareErrors = (yReal-yPredicted').^2;
-mseTrain = sum(squareErrors)/length(yPredicted);
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %for valid
 
 
@@ -64,9 +54,7 @@ squareErrors = (yReal-yPredicted).^2;
 mseValid = sum(squareErrors)/length(yPredicted);
 
 
-
-
-cost = mseTrain + abs(mseTrain - mseValid);
+cost = mseValid;
 
 cellWeights = cell(1,3);
 
