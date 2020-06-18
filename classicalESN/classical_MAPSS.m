@@ -1,7 +1,4 @@
-% A minimalistic Echo State Networks demo with Mackey-Glass (delay 17) data
-% in "plain" Matlab.
-% by Mantas Lukosevicius 2012
-% http://minds.jacobs-university.de/mantas
+
 clearvars
 close all
 clc
