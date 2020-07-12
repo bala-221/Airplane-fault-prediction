@@ -17,25 +17,40 @@ for run = 1: 4
     
     switch(run)
         
-        case 1
-            veryRawData = load('FD001_edited.txt');
-            trainLen = 14000;
-            testLen = 6000;
+         case 1
+            fid = fopen('FD001_edited.txt');
+            cdata  =  textscan(fid, '%f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f', 'HeaderLines',1);
+            veryRawData = cell2mat(cdata);
+            fclose(fid);    
+            
+            trainLen = 14000; 
+            testLen = 6000; 
+            
         case 2
             
-            veryRawData = load('FD002_edited.txt');
+            fid = fopen('FD002_edited.txt');
+            cdata  =  textscan(fid, '%f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f', 'HeaderLines',1);
+            veryRawData = cell2mat(cdata);
+            fclose(fid);         
+           
             trainLen = 35000;
             testLen = 15000;
             
         case 3
             
-            veryRawData = load('FD003_edited.txt');
+             fid = fopen('FD003_edited.txt');
+            cdata  =  textscan(fid, '%f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f', 'HeaderLines',1);
+            veryRawData = cell2mat(cdata);
+            fclose(fid);    
             trainLen = 14000;
             testLen = 6000;
             
         case 4
             
-            veryRawData = load('FD004_edited.txt');
+            fid = fopen('FD004_edited.txt');
+            cdata  =  textscan(fid, '%f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f', 'HeaderLines',1);
+            veryRawData = cell2mat(cdata);
+            fclose(fid);    
             trainLen = 35000;
             testLen = 15000;
             
