@@ -2,8 +2,6 @@ function [XValid,YValid] = validPrepare(normData,validLen,newTrainLen)
 
 normDataValid = normData(newTrainLen+1:newTrainLen+validLen,:);
 
-
-
 numObservations = max(normDataValid(:,1)) - min(normDataValid(:,1)) + 1 ;
 
 YValid = cell(numObservations,1);
