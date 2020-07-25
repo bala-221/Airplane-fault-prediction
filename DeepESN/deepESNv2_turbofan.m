@@ -61,8 +61,7 @@ for run = 1:4
     
      
     for sig = 1: maxSig
-        column = rawData(:,sig);
-        %newColumn = (2*(column - min(column))/(max(column) - min(column))) -1;
+        column = rawData(:,sig);        
         normData(:,sig) = rescale(column,-1,1);       
     end
     
@@ -160,11 +159,9 @@ for trial = 1: maxTrial
                 inputPart = cellInterLayer{layer} *[input;bias]; % inputpart of main equation Wlayer = interlayer weights resWeights by resWeights
             end
             
-            %layerStatesNew = cellPerLayer{layer};
+            
             x = cellTrackLayerStates{layer};
-            cellTrackLayerStates{layer} = (1-leaky)*x + leaky*tanh(inputPart + cellResWeights{layer}*x ); %Updating the x
-            %theGuy = cellTrackLayerStates{layer};
-            %layerStatesNew(:,t) = theGuy; % saving the present reserv states
+            cellTrackLayerStates{layer} = (1-leaky)*x + leaky*tanh(inputPart + cellResWeights{layer}*x ); %Updating the x            
             cellPerLayer{layer}(:,t) = cellTrackLayerStates{layer};            
         end
         
