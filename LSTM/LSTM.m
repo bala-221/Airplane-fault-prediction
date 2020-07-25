@@ -3,41 +3,54 @@ close all
 clc
 rng('shuffle'); %shuffling the random number generator
 %LSTM for turbofan RUL prediction
-%
+% Wu, Yuting, et al. "Remaining useful life estimation of engineered systems using vanilla LSTM neural networks." Neurocomputing 275 (2018): 167-179.
 %By: Abubakar Bala
-%Topic: LSTM for RUL prediction usign matlab tool box
+%Topic: LSTM for RUL prediction using matlab tool box
 %Started on: 24/07/2020 :DD/MM/YYYY
 
 
 
-
-
-for run = 1:4
+for run = 1: 4
     
     switch(run)
         
-        case 1
-            veryRawData = load('FD001_edited.txt');
-            trainLen = 14000;
-            testLen = 6000;
+         case 1
+            fid = fopen('FD001_edited.txt');
+            cdata  =  textscan(fid, '%f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f', 'HeaderLines',1);
+            veryRawData = cell2mat(cdata);
+            fclose(fid);    
+            
+            trainLen = 14000; 
+            testLen = 6000; 
             
         case 2
             
-            veryRawData = load('FD002_edited.txt');
+            fid = fopen('FD002_edited.txt');
+            cdata  =  textscan(fid, '%f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f', 'HeaderLines',1);
+            veryRawData = cell2mat(cdata);
+            fclose(fid);         
+           
             trainLen = 35000;
             testLen = 15000;
             
         case 3
             
-            veryRawData = load('FD003_edited.txt');
+             fid = fopen('FD003_edited.txt');
+            cdata  =  textscan(fid, '%f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f', 'HeaderLines',1);
+            veryRawData = cell2mat(cdata);
+            fclose(fid);    
             trainLen = 14000;
             testLen = 6000;
             
         case 4
             
-            veryRawData = load('FD004_edited.txt');
+            fid = fopen('FD004_edited.txt');
+            cdata  =  textscan(fid, '%f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f', 'HeaderLines',1);
+            veryRawData = cell2mat(cdata);
+            fclose(fid);    
             trainLen = 35000;
             testLen = 15000;
+            
             
     end
     
@@ -56,12 +69,8 @@ for run = 1:4
     
     normData = zeros(size(rawData,1),maxSig);
     for sig = 1: maxSig
-        column = rawData(:,sig);
-        %newColumn = (2*(column - min(column))/(max(column) - min(column))) -1;
-        normData(:,sig) = rescale(column,-1,1);
-        %mu = mean(column);
-        %sigma = std(column);
-        %normData(:,sig) =  (column - mu) ./ sigma;
+        column = rawData(:,sig);        
+        normData(:,sig) = rescale(column,-1,1);        
     end
     
     
@@ -141,7 +150,7 @@ for run = 1:4
         yReal = targets(trainLen+1:trainLen + testLen);
         squareErrors = (YPredMat'-yReal).^2;
         mseTestTrial(trial) = sum(squareErrors)/length(yReal);
-        timing(trial)  = toc;        
+        timing(trial)  = toc;       
         
        
         
