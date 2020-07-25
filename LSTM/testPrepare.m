@@ -1,9 +1,6 @@
 function [XTest,YTest] = testPrepare(normData,testLen,trainLen)
 
 normDataTest = normData(trainLen+1:trainLen+testLen,:);
-
-
-
 numObservations = max(normDataTest(:,1)) - min(normDataTest(:,1)) + 1 ;
 
 YTest = cell(numObservations,1);
