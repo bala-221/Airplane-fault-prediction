@@ -363,7 +363,7 @@ for run = 1: 4
                     randomIndex = randi(size(population,1),1);
                     randomSolutionL =   population(randomIndex,:);
                     
-                    [costSolutionNew,newCellWeights, newCellResEx] = testingfindCostMSE(solutionNewNew,normData,targets,inputSize,outputSize,...
+                    [costSolutionNew,newCellWeights, newCellResEx] = findCostMSE(solutionNewNew,normData,targets,inputSize,outputSize,...
                         trainLen,initLen,leaky);
                     
                     
@@ -396,7 +396,7 @@ for run = 1: 4
         inputWeights = bestCellWeights{1};
         resWeights = bestCellWeights{2};
         outputWeights= bestCellWeights{3};
-        testMSE(trial) = testingfindTestMseCuckoo(inputWeights,resWeights,outputWeights,normData,targets,outputSize,trainLen,testLen,leaky,bestResEx);
+        testMSE(trial) = findTestMseCuckoo(inputWeights,resWeights,outputWeights,normData,targets,outputSize,trainLen,testLen,leaky,bestResEx);
         % bestNest = population(1,:);
         
        
