@@ -8,4 +8,4 @@ A. Saxena, K. Goebel, D. Simon, and N. Eklund, “Damage propagation modeling fo
 
 
 
-We recommend running on Matlab 2018b or later.
+We recommend running on Matlab 2018b or later. Since in its present state each code is run 10 times. For short tests. we advice rserchers to cut teh number to one ans see how things run first. Contact us via abala.ele@buk.edu.ng
